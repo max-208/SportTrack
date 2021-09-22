@@ -3,7 +3,6 @@
     error_reporting(E_ALL);
 require ('controllers/ApplicationController.php');
 
-print(json_encode($_SESSION));
 $controller = ApplicationController::getInstance()->getController($_REQUEST);
 if($controller != null){
 include "controllers/$controller.php";
