@@ -1,7 +1,7 @@
 <?php
 require('Controller.php');
 
-class ConnectUserController implements Controller{
+class DisconnectUserController implements Controller{
 
     public function handle($request){
         $_SESSION['message']= 'Disconnect User:';
