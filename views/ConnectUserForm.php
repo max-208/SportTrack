@@ -7,7 +7,7 @@
 <body>
 
 <h1>SpotTrack</h1>
-<a href="index.html">Acceuil</a>
+<a href="index.php?page=/">Acceuil</a>
 <p>Formulaire de connexion</p>
 
 <form action = "index.php" page="user_connect" method="POST">

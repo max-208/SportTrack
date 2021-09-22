@@ -7,10 +7,10 @@
 <body>
 
 <h1>SpotTrack</h1>
-<a href="index.html">Acceuil</a>
+<a href="index.php?page=/">Acceuil</a>
 <p>Formulaire d'inscription</p>
 
-<form action = "index.php"  page="user_add" method="POST">
+<form action = "index.php?page=user_add" method="POST">
     <label for="FName">Nom</label><br>  
     <input type = "text" id = "FName" name = "FName" required><br>
     <br>
@@ -21,12 +21,12 @@
     <input type = "date" id = "FDate" name = "FDate" required><br>
     <br>
     <label for="FSex">Sexe</label><br>  
-    <input type = "Radio" id = "Male" name = "FSex" value = "Male">
-    <label for="Male">Homme</label><br> 
-    <input type = "Radio" id = "Female" name = "FSex" value = "Female">
-    <label for="Female">Femme</label><br> 
-    <input type = "Radio" id = "Other" name = "FSex" value = "Other" checked>
-    <label for="Other">Autre / Ne shouaite pas préciser</label><br> 
+    <input type = "Radio" id = "Homme" name = "FSex" value = "Homme">
+    <label for="Homme">Homme</label><br> 
+    <input type = "Radio" id = "Femme" name = "FSex" value = "Femme">
+    <label for="Femme">Femme</label><br> 
+    <input type = "Radio" id = "Autres" name = "FSex" value = "Autres" checked>
+    <label for="Autres">Autre / Ne shouaite pas préciser</label><br> 
     <br>
     <label for="FHeight">Taille (cm)</label><br>  
     <input type = "number" id = "FHeight" name = "FHeight" min = "0", max = "300" required><br>
