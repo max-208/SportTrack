@@ -10,7 +10,7 @@
 <a href="index.html">Acceuil</a>
 <p>Formulaire de connexion</p>
 
-<form action = "login.php" method="POST">
+<form action = "index.php" page="user_connect" method="POST">
     <label for="FMail">Adresse Email</label><br>  
     <input type = "email" id = "FMail" name = "FMail" pattern = "[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" required><br>
     <br>

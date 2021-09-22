@@ -6,9 +6,9 @@
 </head>
 <body>
       <h1>SpotTrack</h1>
-      <a href="FormCreate.html">Creation de profil</a>
-      <a href="formConnect.html">Connexion</a>
-      <a href="FormEdit.html">Editer le profil</a>
+      <a href="index.php?page=user_add_form">Creation de profil</a>
+      <a href="index.php?page=user_connect_form">Connexion</a>
+      <a href="index.php?page=/">Editer le profil</a>
       <input type = "file">
       <?php 
       echo $_SESSION['message']; 

@@ -1,5 +1,7 @@
 <?php
 require('Controller.php');
+require("./model/User.php");
+require("./model/UserDAO.php");
 
 class AddUserController implements Controller{
 
