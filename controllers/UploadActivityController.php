@@ -3,7 +3,7 @@ require('Controller.php');
 
 class UploadActivityController implements Controller{
 
-    public function handle(){
+    public function handle($request){
         $uploaddir = 'uploads/';
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
         $uploadOk = 1;
