@@ -46,6 +46,16 @@ class ActivityDAO {
          }
      }
   }
+  public function getItem($user){
+    $dbc = SqliteConnection::getInstance()->getConnection();
+    $query = "select * from Activity where TheUser = :id";
+    $stmt = $dbc->prepare($query);
+    $stmt->bindValue(':id',$user,PDO::PARAM_STR);
+    $results = $stmt->fetchALL(PDO::FETCH_CLASS, 'Activity');
+    return $results;
+
+  }
+
 
   public function delete($obj){
     if($obj instanceof Activity){
