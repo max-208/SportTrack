@@ -4,6 +4,10 @@
       <meta charset="utf-8">
       </head>
       <body>
-      <h1>This page does not exist.</h1>
+      <h1>
+            Erreur : <?php echo $_SESSION['message'];?>
+      </h1>
+      
+      <a href="index.php?page=/">Revenir a L'acceuil</a>
       </body>
       </html>

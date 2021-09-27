@@ -12,6 +12,19 @@ class UserDAO {
        return self::$dao;
     }
 
+    public final function find($obj){
+        $results = null;
+        if($obj instanceof User && null !== $obj->getEmail() && null !== $obj->getPassword() ){
+            $dbc = SqliteConnection::getInstance()->getConnection();
+            $query = "select * from user WHERE Email = :E AND Password = :P";
+            $stmt = $dbc->query($query);
+            $stmt->bindValue(':E',$obj->getEmail(),PDO::PARAM_STR);
+            $stmt->bindValue(':P',$obj->getPassword(),PDO::PARAM_STR);
+            $results = $stmt->fetch(PDO::FETCH_CLASS, 'User');
+        }
+        return $results;
+    }
+
     public final function findAll(){
        $dbc = SqliteConnection::getInstance()->getConnection();
        $query = "select * from user order by Email";

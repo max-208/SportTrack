@@ -10,6 +10,7 @@ class DisconnectUserController implements Controller{
             $_SESSION['message']= "deconnection reussie";    
         } else {
             $_SESSION['message']= "Personne n'est connectée";   
+        }
     }
 }
 ?>
