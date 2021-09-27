@@ -24,27 +24,37 @@
         <th>Frequence moyenne</th>
         
       </tr>
-      <tr>
-        <td><td width="15%">  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
 
-      </tr>
-      <tr>
-        <td><td width="15%">  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
-      </tr>
+<?php
+
+    $array = ActivityDAO::getInstance()->getItem($user);
+    
+    foreach ( $array as $value){
+        echo("<td>".$value->getDescription()."</td>");
+        echo("<td>".$value->getDate()."</td>");
+        echo("<td>".$value->getBegginingTime()."</td>");
+        echo("<td>".$value->getDuration()."</td>");
+        echo("<td>"."Distance"."</td>");
+        echo("<td>".$value->getMinCardio()."</td>");
+        echo("<td>".$value->getMaxCardio()."</td>");
+        echo("<td>".$value->getAverageCardio()."</td>");
+            
+    }
+
+    // <tr>
+
+    //   <td><td width="15%">  </td>
+    //   <td>  </td>
+    //   <td>  </td>
+    //   <td>  </td>
+    //   <td>  </td>
+    //   <td>  </td>
+    //   <td>  </td>
+    //   <td>  </td>
+
+    // </tr>
+
+?>
     </table>
     
     
