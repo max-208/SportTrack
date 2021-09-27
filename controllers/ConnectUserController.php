@@ -6,13 +6,19 @@ require('model/UserDAO.php');
 class ConnectUserController implements Controller{
 
     public function handle($request){
-        $_SESSION['message']= 'Disconnect User:';
         $user = new User();
         $user->init($request['FMail'],null,null,null,null,null,null,$request['FPassword']);
-        UserDAO::getInstance()->delete($user);
-        
+        $_SESSION['message']= 'Connect User:';
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
+            $_SESSION['message']= "Personne déjà connectée";
+        } else {
+            $info = UserDAO::get_instance()->findUser($user);
+            if ($info == true){
+                $_SESSION["loggedin"] = true;
+                $_SESSION['message']= "Connection reussie";   
+            }
+        }
     }
-
 
 }
 ?>
