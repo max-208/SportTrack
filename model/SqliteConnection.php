@@ -16,7 +16,7 @@
 
         public final function getConnection(){
             try{
-                $db = new PDO('sqlite:/home/maxime/Documents/m3104-web-serveur/SpotTrack/model/sport_track.db'); // , array(PDO::ATTR_PERSISTENT => true));
+                $db = new PDO('sqlite:model/sport_track.db'); 
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $db->setAttribute(PDO::ATTR_PERSISTENT, true);
                 return $db;

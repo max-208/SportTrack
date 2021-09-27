@@ -12,16 +12,21 @@ class UserDAO {
        return self::$dao;
     }
 
-    public final function findUser($obj){
-        $results = null;
-        if($obj instanceof User && null !== $obj->getEmail() && null !== $obj->getPassword() ){
-            $dbc = SqliteConnection::getInstance()->getConnection();
-            $query = "select * from user where Email = :E and Password = :P";
-            $stmt = $dbc->query($query);
-            $stmt->bindValue(':E',$obj->getEmail(),PDO::PARAM_STR);
-            $stmt->bindValue(':P',$obj->getPassword(),PDO::PARAM_STR);
+    public final function findUser($email,$password){
+        
+        $dbc = SqliteConnection::getInstance()->getConnection();
+        $query = 'select * from user where Email = :E and Password = :P';
+        $stmt = $dbc->prepare($query);
+        $stmt->bindValue(':E',$email,PDO::PARAM_STR);
+        $stmt->bindValue(':P',$password,PDO::PARAM_STR);
+        try{
+            $stmt->execute();
             $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
-        }
+        } catch(Exception $e){
+            $results = null;
+            echo "UserDAO insert : exception recue : ".$e->getMessage()."\xA" ;
+        } 
+        
         return $results;
     }
 
