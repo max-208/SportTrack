@@ -13,16 +13,19 @@ class UserDAO {
     }
 
     public final function findUser($obj){
-        $results = null;
+        $ret = null;
         if($obj instanceof User && null !== $obj->getEmail() && null !== $obj->getPassword() ){
             $dbc = SqliteConnection::getInstance()->getConnection();
             $query = "select * from user WHERE Email = :E AND Password = :P";
             $stmt = $dbc->query($query);
             $stmt->bindValue(':E',$obj->getEmail(),PDO::PARAM_STR);
             $stmt->bindValue(':P',$obj->getPassword(),PDO::PARAM_STR);
-            $results = $stmt->fetch(PDO::FETCH_CLASS, 'User');
+            $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
+            print_r($results);
+            $ret = count( $results );
+            print($ret);
         }
-        return $results;
+        return $ret;
     }
 
     public final function findAll(){
@@ -30,21 +33,9 @@ class UserDAO {
        $query = "select * from user order by Email";
        $stmt = $dbc->query($query);
        $results = $stmt->fetchALL(PDO::FETCH_CLASS, 'User');
+       print_r($results);
        return $results;
     }
-
-
-    public final function findUser($user){
-        $dbc = SqliteConnection::getInstance()->getConnection();
-        $query = "select * from user where Email = :E and Password = :P";
-        $stmt = $dbc->query($query);
-        $stmt->bindValue(':E',$user->getEmail(),PDO::PARAM_STR);
-        $stmt->bindValue(':P',$user->getPassword(),PDO::PARAM_STR);
-        $results = $stmt->fetchALL(PDO::FETCH_CLASS, 'User');
-        
-        if (str$results)
-        return $results;
-     }
 
    public final function insert($st){
       if($st instanceof User){
