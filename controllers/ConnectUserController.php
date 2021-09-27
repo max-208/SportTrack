@@ -12,7 +12,7 @@ class ConnectUserController implements Controller{
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
             $_SESSION['message']= "Personne déjà connectée";
         } else {
-            $info = UserDAO::get_instance()->findUser($user);
+            $info = UserDAO::getInstance()->findUser($user);
             if ($info == true){
                 $_SESSION["loggedin"] = true;
                 $_SESSION['message']= "Connection reussie";   

@@ -12,7 +12,7 @@ class UserDAO {
        return self::$dao;
     }
 
-    public final function find($obj){
+    public final function findUser($obj){
         $results = null;
         if($obj instanceof User && null !== $obj->getEmail() && null !== $obj->getPassword() ){
             $dbc = SqliteConnection::getInstance()->getConnection();
