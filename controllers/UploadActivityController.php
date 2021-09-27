@@ -26,7 +26,14 @@ class UploadActivityController implements Controller{
             }
         }
         // Fichier téléchargé , traitement des données 
+        $Json = file_get_contents($uploadfile);
+        
+        $myarray = json_decode($Json, true);
+        var_dump($myarray);
 
+        //$data = json_decode($json);
+        //echo $data->myarray[2]->time;
+//
 
 
     }   
