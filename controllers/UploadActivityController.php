@@ -22,7 +22,7 @@ class UploadActivityController implements Controller{
             if (move_uploaded_file($_FILES["userfile"]["name"], $uploadfile)) {
               echo "Fichier ". htmlspecialchars( basename( $_FILES["userfile"]["name"])). " est téléchargé.";
             } else {
-              echo "Erreur lors du téléchargement du fichier"
+              echo "Erreur lors du téléchargement du fichier";
             }
         }
         // Fichier téléchargé , traitement des données 
