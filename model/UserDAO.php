@@ -33,6 +33,19 @@ class UserDAO {
        return $results;
     }
 
+
+    public final function findUser($user){
+        $dbc = SqliteConnection::getInstance()->getConnection();
+        $query = "select * from user where Email = :E and Password = :P";
+        $stmt = $dbc->query($query);
+        $stmt->bindValue(':E',$user->getEmail(),PDO::PARAM_STR);
+        $stmt->bindValue(':P',$user->getPassword(),PDO::PARAM_STR);
+        $results = $stmt->fetchALL(PDO::FETCH_CLASS, 'User');
+        
+        if (str$results)
+        return $results;
+     }
+
    public final function insert($st){
       if($st instanceof User){
          $dbc = SqliteConnection::getInstance()->getConnection();
