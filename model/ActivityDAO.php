@@ -64,6 +64,7 @@ class ActivityDAO {
     $query = "select * from Activity where TheUser = :id";
     $stmt = $dbc->prepare($query);
     $stmt->bindValue(':id',$user,PDO::PARAM_STR);
+    $stmt->execute();
     $results = $stmt->fetchALL(PDO::FETCH_CLASS, 'Activity');
     return $results;
 

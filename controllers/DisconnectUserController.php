@@ -7,7 +7,9 @@ class DisconnectUserController implements Controller{
         $_SESSION['message']= 'Disconnect User:';
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
             $_SESSION["loggedin"] = false;
-            $_SESSION['message']= "deconnection reussie";    
+            $_SESSION["Email"] = "";
+            $_SESSION['message']= "deconnection reussie";   
+            session_destroy(); 
         } else {
             $_SESSION['message']= "Personne n'est connectée";   
         }

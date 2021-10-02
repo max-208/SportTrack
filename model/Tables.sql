@@ -27,7 +27,7 @@ CREATE TABLE activity(
 	TheUser text
 	CONSTRAINT FK_activityUser REFERENCES user(Email),
 	MaxCardio integer,
-	Mincardio integer,
+	MinCardio integer,
 	AverageCardio real,
 	BegginingTime time,
 	Duration time
