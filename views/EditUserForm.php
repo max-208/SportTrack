@@ -29,7 +29,7 @@
                             <input type = "Radio" id = "Female" name = "FSex" value = "Femme">
                             <label for="Femme">Femme</label><br> 
                             <input type = "Radio" id = "Other" name = "FSex" value = "Autres" checked>
-                            <label for="Autres">Autre / Ne shouaite pas préciser</label><br> 
+                            <label for="Autres">Autre / Ne souhaite pas préciser</label><br> 
                             <br>
                             <label for="FHeight">Nouvelle Taille (cm)</label><br>  
                             <input type = "number" id = "FHeight" name = "FHeight" min = "0", max = "300" ><br>
