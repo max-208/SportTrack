@@ -11,7 +11,7 @@
 <p>Liste des activités</p>
 
 <form action = "index.php?page=list_activities" method="POST">
-    <<table border="1", cellpadding="8">>
+    <table border="1", cellpadding="8">
       <colgroup span="8" class="columns"></colgroup>
       <tr>
         <th><td width="15%">Description</th>
@@ -26,8 +26,10 @@
       </tr>
 
 <?php
-
-    $array = ActivityDAO::getInstance()->getItem($user);
+    
+require('model/ActivityDAO.php');
+require('model/Activity.php');
+    $array = ActivityDAO::getInstance()->getItem(1);
     
     foreach ( $array as $value){
         echo("<td>".$value->getDescription()."</td>");

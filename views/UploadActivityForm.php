@@ -5,27 +5,24 @@
 <title>SpotTrack</title>
 </head>
 <body>
-
 <h1>SpotTrack</h1>
 <a href="index.php?page=/">Acceuil</a>
 <p>Ajouter une nouvelle activité</p>
 
-<form action = "index.php?page=upload_activity" method="POST">
+<form enctype="multipart/form-data" action = "index.php?page=upload_activity" method="POST">
     
-    <label for="avatar">Choisir un fichier à ajouter (format Json):
+    <label for="userfile">Choisir un fichier à ajouter (format Json):
     <br>
     <br>
     </label>
     
-    <input type="file" id="avatar" name="avatar"
+    <input type="file" id="userfile" name="userfile"
        accept=".json">
     <br>
     <br>
     <br>
-    
-    <button>Envoyer</button>
-    
-    
+    <input type="submit" value="Envoyer">
+
 </form>
 </body>
 </html> 

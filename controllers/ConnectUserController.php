@@ -25,6 +25,7 @@ class ConnectUserController implements Controller{
             print_r($newUser);
             if (count($newUser) > 0){
                 $_SESSION["loggedin"] = true;
+                $_SESSION["Email"] = $newUser[0]->getEmail();
                 $_SESSION['message']= "Connection reussie";   
             } else {
                 $_SESSION['message']= "Connection échouée";  

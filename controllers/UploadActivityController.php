@@ -1,10 +1,15 @@
 <?php
 require('Controller.php');
+require('./Activity.php');
+require('./ActivityDAO.php');
 
 class UploadActivityController implements Controller{
 
     public function handle($request){
-        $uploaddir = 'uploads/';
+        print_r($_FILES);
+        print("</br>");
+        print("</br>");
+        $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/'.'uploads/';
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
         $uploadOk = 1;
         $FileType = strtolower(pathinfo($uploadfile,PATHINFO_EXTENSION));
@@ -19,7 +24,7 @@ class UploadActivityController implements Controller{
             echo "Votre fichier ne peut pas être téléchargé";
           
         } else {
-            if (move_uploaded_file($_FILES["userfile"]["name"], $uploadfile)) {
+            if (move_uploaded_file($_FILES["userfile"]["tmp_name"], $uploadfile)) {
               echo "Fichier ". htmlspecialchars( basename( $_FILES["userfile"]["name"])). " est téléchargé.";
             } else {
               echo "Erreur lors du téléchargement du fichier";
@@ -30,7 +35,9 @@ class UploadActivityController implements Controller{
         
         $myarray = json_decode($Json, true);
         var_dump($myarray);
-
+        $Activity = new Activity();
+        $Activity->init();
+        unlink($uploadfile); // on supprime le fichier
         //$data = json_decode($json);
         //echo $data->myarray[2]->time;
 //
