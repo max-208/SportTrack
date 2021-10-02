@@ -9,7 +9,6 @@ class ListActivityController implements Controller{
         $_SESSION['message']= " ";
 
         $array = ActivityDAO::getInstance()->getItem($_SESSION["Email"]);
-        print_r($array);
         foreach ( $array as $value){
             $_SESSION['message'] = $_SESSION['message'] . ("<tr>");
             $_SESSION['message'] = $_SESSION['message'] . ("<td>".$value->getIdActivity()."</td>");

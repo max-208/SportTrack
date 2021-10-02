@@ -15,7 +15,7 @@ class AddUserController implements Controller{
             $_SESSION["Email"] = $request['FMail'];
             $_SESSION["Name"] = $request['FName'];
             header( "refresh:10;url=index.php?page=/",true,302);
-            $_SESSION['message']= 'Création de compte réussie, bienvenue, '.$request['FSurname'].", vous serez redirigé vers l'acceuil dans 10 secondes</br>";
+            $_SESSION['message']= 'Création de compte réussie, bienvenue, '.$request['FSurname'].", vous serez redirigé vers l'accueil dans 10 secondes</br>";
         } catch (exception $e) {
             header( "refresh:0;url=index.php?page=user_add_form",true,302 );
             $_SESSION['error']= '</br>Oh, non il semblerai que le compte '.$request['FMail']."existe deja ou que votre mot de passe n'est pas conforme. </br></br>";

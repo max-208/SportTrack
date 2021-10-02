@@ -59,7 +59,7 @@ class UploadActivityController implements Controller{
 
                 unlink($uploadfile); // on supprime le fichier
                 header( "refresh:3;url=index.php?page=/" );
-                $_SESSION["message"] = "Fichier ajouté avec succes ! Vous serez redirigé vers l'acceuil dans 3 secondes</br>";
+                $_SESSION["message"] = "Fichier ajouté avec succes ! Vous serez redirigé vers l'accueil dans 3 secondes</br>";
             
             } else {
                 header( "refresh:0;url=index.php?page=upload_activity_form" );
