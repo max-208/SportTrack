@@ -20,7 +20,7 @@ class EditUserController implements Controller{
                 if( $request[ "FWeight" ] != NULL )     { $W = $request[ "FWeight" ]; }    else { $W = $oldUser[0]->getWeight(); } 
                 if( $request[ "FPassword" ] != NULL )   { $P = $request[ "FPassword" ]; }  else { $P = $oldUser[0]->getPassword(); } 
                 $newUser->init($M, $N, $S, $B, $G, $H, $W, $P);
-                UserDAO::getInstance()->update($oldUser,$newUser);
+                UserDAO::getInstance()->update($oldUser[0],$newUser);
                 $_SESSION['Email'] = $M;
                 $_SESSION['Name'] = $S;
                 header( "refresh:3;url=index.php?page=/",true,302 );
