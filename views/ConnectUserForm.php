@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 </head>
 <body>
-    <div class="w3-container w3-flat-wet-asphalt">
+    <div class="w3-container w3-flat-turquoise">
         <h1>SpotTrack</h1>
         <p><a href="index.php?page=/">Accueil</a></p>
     </div>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="w3-container w3-flat-wet-asphalt">
+    <div class="w3-container w3-flat-turquoise">
         <h1>SpotTrack</h1>
         <p><a href="index.php?page=/">Accueil</a></p>
     </div>
