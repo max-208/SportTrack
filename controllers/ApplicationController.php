@@ -9,11 +9,13 @@ class ApplicationController{
             '/' => ['controller'=>'MainController', 'view'=>'MainView'],
             'user_add' => ['controller'=>'AddUserController', 'view'=>'AddUserValidationView'],
             'user_connect' => ['controller'=>'ConnectUserController', 'view'=>'ConnectUserValidationView'],
+            'user_edit' => ['controller'=>'EditUserController', 'view'=>'EditUserValidationView'],
             'user_disconnect' => ['controller'=>'DisconnectUserController', 'view'=>'DisconnectUserVue'],
             'upload_activity' => ['controller'=>'UploadActivityController', 'view'=>'uploadActivityValidation'],
             'list_activities' => ['controller'=>'ListActivityController', 'view'=>'ListActivityView'],
             'user_add_form' => ['controller'=>null, 'view'=>'AddUserForm'],
             'user_connect_form' => ['controller'=>null, 'view'=>'ConnectUserForm'],
+            'user_edit_form' => ['controller'=>null, 'view'=>'EditUserForm'],
             'upload_activity_form' => ['controller'=>null, 'view'=>'UploadActivityForm'],
             'error' => ['controller'=>null, 'view'=>'ErrorView']
         ];
@@ -40,10 +42,10 @@ class ApplicationController{
      */
     public function getController($request){
         $_SESSION['message']= "</br>";
-        if(array_key_exists($request['page'], $this->routes)){
+        if($request != null && array_key_exists($request['page'], $this->routes)){
             return $this->routes[$request['page']]['controller'];
         }
-        return null;
+        return $this->routes["/"]['controller'];
     }
 
     /**
@@ -54,7 +56,7 @@ class ApplicationController{
      * specified as parameter. 
      */
     public function getView($request){
-        if( array_key_exists($request['page'], $this->routes)){
+        if( $request != null && array_key_exists($request['page'], $this->routes)){
             return $this->routes[$request['page']]['view'];
         }  
         return $this->routes['error']['view'];

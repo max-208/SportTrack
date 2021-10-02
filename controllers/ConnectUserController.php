@@ -20,7 +20,7 @@ class ConnectUserController implements Controller{
                 $_SESSION['message']= "Connection reussie, vous serez redirigé vers l'accueil dans 3 secondes</br>";
             } else {
                 header( "refresh:0;url=index.php?page=user_connect",true,302 );
-                $_SESSION['error']= "</br>Connection échouée, veuillez réésayer</br></br>";
+                $_SESSION['error']= '</br><div class = "w3-container w3-red"><p>Connection échouée, veuillez réésayer</p></div></br>';
             }
         }
     }

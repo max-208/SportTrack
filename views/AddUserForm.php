@@ -24,7 +24,7 @@
             <label for="FDate">Date de naissance</label><br>  
             <input type = "date" id = "FDate" name = "FDate" required><br>
             <br>
-            <label for="FSex">Sexe</label><br>  
+            <label for="FSex">Genre</label><br>  
             <input type = "Radio" id = "Homme" name = "FSex" value = "Homme">
             <label for="Homme">Homme</label><br> 
             <input type = "Radio" id = "Femme" name = "FSex" value = "Femme">

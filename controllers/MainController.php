@@ -9,7 +9,7 @@ class MainController implements Controller{
             $_SESSION['message']= '
             Bienvenue, '. $_SESSION["Name"] .' ! </br></br>
             <a href="index.php?page=user_disconnect">Deconnection</a>
-            <a href="index.php?page=/">Editer le profil</a>
+            <a href="index.php?page=user_edit_form">Editer le profil</a>
             <a href="index.php?page=upload_activity_form">Upload une activité</a>
             <a href="index.php?page=list_activities">Lister les activités</a>';
         } else {
