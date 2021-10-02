@@ -5,14 +5,19 @@ class MainController implements Controller{
 
     public function handle($request){
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
-            $_SESSION['message']= "deja connecte";
+            $_SESSION['message']= '
+            Bienvenue, '. $_SESSION["Name"] .' ! </br>
+            <a href="index.php?page=user_disconnect">Deconnection</a>
+            <a href="index.php?page=/">Editer le profil</a>
+            <a href="index.php?page=upload_activity_form">Upload une activité</a>
+            <a href="index.php?page=list_activities">Lister les activités</a>
+            ';
         } else {
-            if(isset($_POST["FMail"]) && $_POST["FMail"] == "test@mail.com"){ // TODO : remplacer par la verification BDD
-                $_SESSION["loggedin"] = true;
-                $_SESSION['message']= "connection reussie";
-            } else {
-                $_SESSION['message']= "connection non reussie";
-            }
+            $_SESSION['message']= '
+            Veuillez Créer un profil ou vous connecter </br>
+            <a href="index.php?page=user_add_form">Creation de profil</a>
+            <a href="index.php?page=user_connect_form">Connexion</a>
+            ';
         }
         
     }

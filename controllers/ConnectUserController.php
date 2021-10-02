@@ -6,29 +6,18 @@ require('model/UserDAO.php');
 class ConnectUserController implements Controller{
 
     public function handle($request){
-        
-        $_SESSION['message']= 'Connect User:';
+        header( "refresh:3;url=index.php?page=/" );
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
-            $_SESSION['message']= "Personne déjà connectée";
+            $_SESSION['message']= "Vous êtes déja connecté, vous serez redirigé vers l'acceuil dans 3 secondes</br>";
         } else {
-            echo("</br>");
-            echo("</br>tout les user : ");
-            print_r(UserDAO::getInstance()->findAll());
-            echo("</br>");
-            echo("</br>User cherché : ");
-            print($request['FMail']);
-            echo("      ");
-            print($request['FPassword']);
             $newUser = UserDAO::getInstance()->findUser($request['FMail'],$request['FPassword']);
-            echo("</br>");
-            echo("</br>User trouvé : ");
-            print_r($newUser);
             if (count($newUser) > 0){
                 $_SESSION["loggedin"] = true;
                 $_SESSION["Email"] = $newUser[0]->getEmail();
-                $_SESSION['message']= "Connection reussie";   
+                $_SESSION["Name"] = $newUser[0]->getSurname();
+                $_SESSION['message']= "Connection reussie, vous serez redirigé vers l'acceuil dans 3 secondes</br>";   
             } else {
-                $_SESSION['message']= "Connection échouée";  
+                $_SESSION['message']= "Connection échouée, vous serez redirigé vers l'acceuil dans 3 secondes</br>";  
             }
         }
     }
