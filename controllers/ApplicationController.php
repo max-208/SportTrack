@@ -59,7 +59,7 @@ class ApplicationController{
         if( $request != null && array_key_exists($request['page'], $this->routes)){
             return $this->routes[$request['page']]['view'];
         }  
-        return $this->routes['error']['view'];
+        return $this->routes['/']['view'];
     }
 }
 ?>

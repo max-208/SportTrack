@@ -23,11 +23,11 @@ class EditUserController implements Controller{
                 UserDAO::getInstance()->update($oldUser[0],$newUser);
                 $_SESSION['Email'] = $M;
                 $_SESSION['Name'] = $S;
-                header( "refresh:3;url=index.php?page=/",true,302 );
-                $_SESSION['message'] = "modification de profil reussie, vous serez redirigé vers l'accueil dans 3 secondes</br>";
+                header( "refresh:0;url=index.php?page=/",true,302 );
+                #$_SESSION['message'] = "modification de profil reussie, vous serez redirigé vers l'accueil dans 3 secondes</br>";
             } else {
                 header( "refresh:0;url=index.php?page=user_edit_form",true,302 );
-                $_SESSION['error'] = '</br><div class = "w3-container w3-red"><p>erreur de connection : email ou mot de passe erroné</p></div></br>';
+                $_SESSION['error'] = '</br><p>erreur de connection : email ou mot de passe erroné</p></br>';
             }
         } else {
             header( "refresh:0;url=index.php?page=/",true,302 );

@@ -4,7 +4,7 @@ require('Controller.php');
 class ModifUserController implements Controller{
 
     public function handle($request,$user){
-        $_SESSION['message']= 'Modification des informations personelles User:';
+        #$_SESSION['message']= 'Modification des informations personelles User:';
         
         // UserDAO::get_instance()->delete($user);
         

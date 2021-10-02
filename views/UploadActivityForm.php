@@ -1,33 +1,21 @@
-<!doctype html>
-<html lang="fr">
-<head>
-      <meta charset="utf-8">
-      <title>SportTrack</title>
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-      <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
-</head>
-<body>
-    <div class="w3-container w3-flat-turquoise">
-        <h1>SportTrack</h1>
-        <p><a href="index.php?page=/">Accueil</a></p>
-        </br>
-    </div>
-    <div class="w3-container ">
-        </br>
-        <form enctype="multipart/form-data" action = "index.php?page=upload_activity" method="POST">
+<div class="right-image-decor"></div>
+<section class="section" id="testimonials">
 
-            <label for="userfile">Choisir un fichier à ajouter (format Json):
-            <br>
-            <br>
-            </label>
-            
-            <input type="file" id="userfile" name="userfile"
-               accept=".json">
-            <br>
-            <?php echo $_SESSION['error'];?>
-            <input type="submit" value="Envoyer">
-            
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="center-heading">
+                    <h2>Importer une <em>activité</em></h2>
+                    <p>
+                        <?php echo $_SESSION['error'];?>
+                        <form enctype="multipart/form-data" action = "index.php?page=upload_activity" method="POST">
+                            <label for="userfile">Choisir un fichier à ajouter (format Json): </label>
+                            <input type="file" id="userfile" name="userfile" accept=".json">
+                            </br>
+                            <input type="submit" value="Envoyer">
+                        </form>
+                    </p>
+            </div>
+        </div>
     </div>
-</body>
-</html> 
+</section>
