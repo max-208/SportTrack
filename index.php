@@ -3,7 +3,7 @@ require ('controllers/ApplicationController.php');
 session_start();
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-CONST ROOT_DIR = "/home/maxime/Documents/m3104-web-serveur/SpotTrack/";
+CONST ROOT_DIR = "/home/maxime/Documents/m3104-web-serveur/SportTrack/";
 
 #echo("requete : ");
 #print_r($_REQUEST);
