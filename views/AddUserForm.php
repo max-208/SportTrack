@@ -40,7 +40,7 @@
     <label for="FPassword">Mot de passe</label><br>
     (le mot de passe doit contenir au moins 8 caractères, dont au moins 2 majuscules, 1 caractère special (!@#$£€%^&*()\-_+.), 2 nombres et 3 minuscules) <br>
     <input type = "password" id = "FPassword" name = "FPassword" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$" required><br>
-
+    <?php echo $_SESSION['error'];?>
     <input type="submit" value="Valider">
 </form>
 </body>

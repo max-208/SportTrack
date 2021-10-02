@@ -19,8 +19,7 @@
     <input type="file" id="userfile" name="userfile"
        accept=".json">
     <br>
-    <br>
-    <br>
+    <?php echo $_SESSION['error'];?>
     <input type="submit" value="Envoyer">
 
 </form>

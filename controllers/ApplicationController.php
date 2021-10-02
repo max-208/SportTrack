@@ -39,11 +39,12 @@ class ApplicationController{
      * request specified as parameter.  
      */
     public function getController($request){
-    if(array_key_exists($request['page'], $this->routes)){
-    return $this->routes[$request['page']]['controller'];
-}
-    return null;
-}
+        $_SESSION['message']= "</br>";
+        if(array_key_exists($request['page'], $this->routes)){
+            return $this->routes[$request['page']]['controller'];
+        }
+        return null;
+    }
 
     /**
      * Returns the view that must be return in response of the HTTP request
@@ -53,10 +54,10 @@ class ApplicationController{
      * specified as parameter. 
      */
     public function getView($request){
-    if( array_key_exists($request['page'], $this->routes)){
-    return $this->routes[$request['page']]['view'];
-}
-    return $this->routes['error']['view'];
-}
+        if( array_key_exists($request['page'], $this->routes)){
+            return $this->routes[$request['page']]['view'];
+        }  
+        return $this->routes['error']['view'];
+    }
 }
 ?>

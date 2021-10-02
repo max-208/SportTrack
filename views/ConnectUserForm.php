@@ -16,6 +16,7 @@
     <br>
     <label for="FPassword">Mot de passe</label><br>
     <input type = "password" id = "FPassword" name = "FPassword" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$£€%^&*()\-__+.]){1,}).{8,}$" required><br>
+    <?php echo $_SESSION['error'];?>
     <input type="submit" value="Valider">
 </form>
 </body>

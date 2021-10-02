@@ -4,6 +4,7 @@ require('Controller.php');
 class MainController implements Controller{
 
     public function handle($request){
+        $_SESSION['error']= "</br>";  
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
             $_SESSION['message']= '
             Bienvenue, '. $_SESSION["Name"] .' ! </br>

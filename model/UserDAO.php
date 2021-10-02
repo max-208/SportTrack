@@ -19,13 +19,8 @@ class UserDAO {
         $stmt = $dbc->prepare($query);
         $stmt->bindValue(':E',$email,PDO::PARAM_STR);
         $stmt->bindValue(':P',$password,PDO::PARAM_STR);
-        try{
-            $stmt->execute();
-            $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
-        } catch(Exception $e){
-            $results = null;
-            echo "UserDAO insert : exception recue : ".$e->getMessage()."\xA" ;
-        } 
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
         
         return $results;
     }
@@ -40,27 +35,22 @@ class UserDAO {
 
    public final function insert($st){
       if($st instanceof User){
-         $dbc = SqliteConnection::getInstance()->getConnection();
-         // prepare the SQL statement
-         $query = "insert into user( Email, Name, Surname, BirthDate, Gender, Height, Weight, Password ) values (:E, :N, :S, :B, :G, :H, :W, :P)";
-         $stmt = $dbc->prepare($query);
-
-         // bind the paramaters
-         $stmt->bindValue(':E',$st->getEmail(),PDO::PARAM_STR);
-         $stmt->bindValue(':N',$st->getName(),PDO::PARAM_STR);
-         $stmt->bindValue(':S',$st->getSurname(),PDO::PARAM_STR);
-         $stmt->bindValue(':B',$st->getBirthDate(),PDO::PARAM_STR);
-         $stmt->bindValue(':G',$st->getGender(),PDO::PARAM_STR);
-         $stmt->bindValue(':H',$st->getHeight(),PDO::PARAM_STR);
-         $stmt->bindValue(':W',$st->getWeight(),PDO::PARAM_STR);
-         $stmt->bindValue(':P',$st->getPassword(),PDO::PARAM_STR);
-
-         // execute the prepared statement
-         try{
-            $stmt->execute();
-         } catch(Exception $e){
-             echo "UserDAO insert : exception recue : ".$e->getMessage()."\xA" ;
-         }
+        $dbc = SqliteConnection::getInstance()->getConnection();
+        // prepare the SQL statement
+        $query = "insert into user( Email, Name, Surname, BirthDate, Gender, Height, Weight, Password ) values (:E, :N, :S, :B, :G, :H, :W, :P)";
+        $stmt = $dbc->prepare($query);
+        // bind the paramaters
+        $stmt->bindValue(':E',$st->getEmail(),PDO::PARAM_STR);
+        $stmt->bindValue(':N',$st->getName(),PDO::PARAM_STR);
+        $stmt->bindValue(':S',$st->getSurname(),PDO::PARAM_STR);
+        $stmt->bindValue(':B',$st->getBirthDate(),PDO::PARAM_STR);
+        $stmt->bindValue(':G',$st->getGender(),PDO::PARAM_STR);
+        $stmt->bindValue(':H',$st->getHeight(),PDO::PARAM_STR);
+        $stmt->bindValue(':W',$st->getWeight(),PDO::PARAM_STR);
+        $stmt->bindValue(':P',$st->getPassword(),PDO::PARAM_STR);
+        // execute the prepared statement
+        
+        $stmt->execute();
      }
   }
 
@@ -82,12 +72,8 @@ class UserDAO {
         //$stmt->bindValue(':P',$obj->getPassword(),PDO::PARAM_STR);
         
         // execute the prepared statement
-        try{
-            $stmt->execute();
-            unset($obj);
-         } catch(Exception $e){
-             echo "UserDAO delete : exception recue : ".$e->getMessage()."\xA" ;
-         }
+        $stmt->execute();
+        unset($obj);
     }
     }
 
@@ -111,12 +97,8 @@ class UserDAO {
         $stmt->bindValue(':newP',$newObj->getPassword(),PDO::PARAM_STR);
 
         // execute the prepared statement
-        try{
-            $stmt->execute();
-            $oldObj = $newObj;
-         } catch(Exception $e){
-             echo "UserDAO update : exception recue : ".$e->getMessage()."\xA" ;
-         }
+        $stmt->execute();
+        $oldObj = $newObj;
 
     }
 }
