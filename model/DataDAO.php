@@ -20,6 +20,19 @@ class DataDAO {
        return $results;
     }
 
+    public final function getMaxId(){
+       $dbc = SqliteConnection::getInstance()->getConnection();
+       $query = "select MAX(IdData) as max from data";
+       $stmt = $dbc->query($query);
+       $results = $stmt->fetchAll();
+       #print_r($results);
+       $ret = 0;
+       if( $results[0]['max'] != NULL){
+           $ret = $results[0]['max'] + 1;
+       }
+       return $ret;
+    }
+
    public final function insert($obj){
       if($obj instanceof Data){
          $dbc = SqliteConnection::getInstance()->getConnection();
