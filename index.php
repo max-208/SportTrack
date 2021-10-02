@@ -108,7 +108,15 @@ if($view != null){
                     <!-- ***** Contact Form End ***** -->
                     <div class="right-content col-lg-6 col-md-12 col-sm-12">
                         <h2>A propos de <em>nous</em></h2>
-                        <p>Ce site a été developpé par Maxime DANIEL et Philippe LAIDAIN lors d'un projet etudiant pour l'IUT de vannes lors de notre DUT Informatique en cours de developpement.</p>
+                        <p>
+                            Ce site a été developpé par Maxime DANIEL et Philippe LAIDAIN lors d'un projet etudiant pour l'IUT de vannes lors de notre DUT Informatique en cours de developpement d'applications web php.
+                            </br>
+                            </br>
+                            <a href ="https://templatemo.com/tm-540-lava-landing-page">Crédit Template HTML/CSS</a>
+                            </br>
+                            <a href ="https://www.wallpaperup.com/494741/clouds_sky_Extreme_rock_climbing_guy_Sport_Mountains.html">Crédit Image</a>
+
+                        </p>
                     </div>
                 </div>
             </div>
