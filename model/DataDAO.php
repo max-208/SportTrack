@@ -33,6 +33,17 @@ class DataDAO {
        return $ret;
     }
 
+    public function getItem($activity){
+        $dbc = SqliteConnection::getInstance()->getConnection();
+        $query = "select * from Data where TheActivity = :id";
+        $stmt = $dbc->prepare($query);
+        $stmt->bindValue(':id',$activity,PDO::PARAM_STR);
+        $stmt->execute();
+        $results = $stmt->fetchALL();
+        return $results;
+    
+      }
+
    public final function insert($obj){
       if($obj instanceof Data){
          $dbc = SqliteConnection::getInstance()->getConnection();

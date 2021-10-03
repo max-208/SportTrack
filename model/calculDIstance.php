@@ -36,11 +36,11 @@
             $i = 0;
             while( $i < count($parcours)) {
                 if($i != 0){
-                    $distance = $distance + $this->calculDistance2PointsGPS($parcours[$i]['latitude'],$parcours[$i]['longitude'],$parcours[$i-1]['latitude'],$parcours[$i-1]['longitude']);
+                    $distance = $distance + $this->calculDistance2PointsGPS($parcours[$i]['Latitude'],$parcours[$i]['Longitude'],$parcours[$i-1]['Latitude'],$parcours[$i-1]['Longitude']);
                 }
                 $i = $i+1;
             }
-            echo('distance : '.$distance);
+            #echo('distance : '.$distance);
             return $distance;
         }
     }
